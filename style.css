@@ -1,0 +1,274 @@
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --line: #e6e8ee;
+  --accent: #1d4ed8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container {
+  width: min(980px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+  z-index: 20;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 1rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+.hero {
+  padding: 3.5rem 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.profile-photo-placeholder {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid #c7ced9;
+  overflow: hidden;
+  background: #f4f6fa;
+  justify-self: end;
+}
+
+.hero-text h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2rem, 4vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin: 0 0 0.85rem;
+  color: #2f3a4a;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.quick-links a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.cv-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cv-button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.3rem;
+  margin: 0.85rem auto;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+}
+
+.clean-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.publication + .publication {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.pub-title {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.pub-authors,
+.pub-meta {
+  margin: 0.2rem 0 0;
+}
+
+.pub-meta {
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fcfcfd;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.timeline-meta {
+  margin: 0.2rem 0 0.35rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  padding: 1.4rem 0 2rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    padding-top: 3.2rem;
+  }
+
+  .profile-photo-placeholder {
+    width: 160px;
+    height: 160px;
+    justify-self: start;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 4%;
+    top: 64px;
+    width: min(260px, 92vw);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
